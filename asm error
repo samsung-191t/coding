@@ -1,0 +1,69 @@
+UASM
+
+
+   0x00401194      sub     rsp, 8
+   0x00401198      mov     rdi, qword [obj.WWatchBuffer] ; 0x404058
+   0x0040119f      lea     rsi, obj.__ls23949 ; 0x404060 ; "rtl_quote"
+   0x004011a6      lea     rdx, obj.__ls50762 ; 0x4040be ; "foreground"
+   0x004011ad      lea     rcx, obj.__ls1076 ; 0x404075 ; "green"
+   0x004011b4      lea     r8, obj.__ls5511 ; 0x40407b ; "wrap_mode"
+   0x004011bb      mov     r9, 2
+   0x004011c2      push    0
+   0x004011c4      push    0x14       ; 20
+   0x004011c6      lea     rax, obj.__ls44569 ; 0x4040a2 ; "right_margin"
+   0x004011cd      push    rax
+   0x004011ce      push    0x14       ; 20
+   0x004011d0      lea     rax, obj.__ls39112 ; 0x404096 ; "left_margin"
+   0x004011d7      push    rax
+   0x004011d8      push    0x1e       ; 30
+   0x004011da      lea     rax, obj.__ls37456 ; 0x40408f ; "indent"
+   0x004011e1      push    rax
+   0x004011e2      push    2          ; r9
+   0x004011e4      lea     rax, obj.__ls41541 ; 0x404085 ; "direction"
+   0x004011eb      push    rax
+   0x004011ec      xor     eax, eax
+   0x004011ee      call    sym.imp.gtk_text_buffer_create_tag
+   0x004011f3      add     rsp, 0x50
+   0x004011f7      sub     rsp, 8
+   0x004011fb      mov     rdi, qword [obj.WWatchBuffer] ; 0x404058
+   0x00401202      lea     rsi, obj.__ls14102 ; 0x4040af ; "red_foreground"
+   0x00401209      lea     rdx, obj.__ls50762 ; 0x4040be ; "foreground"
+   0x00401210      lea     rcx, obj.__ls2622 ; 0x4040c9 ; "red"
+   0x00401217      mov     r8, 0
+   0x0040121e      xor     eax, eax
+   0x00401220      call    sym.imp.gtk_text_buffer_create_tag
+   0x00401225      add     rsp, 8
+
+GCC
+
+   0x000011d7      sub     rsp, 8
+   0x000011db      push    0
+   0x000011dd      push    0x14
+   0x000011df      lea     rdx, str.right_margin ; 0x2029 ; "right_margin"
+   0x000011e6      push    rdx
+   0x000011e7      push    0x14
+   0x000011e9      lea     rdx, str.left_margin ; 0x2036 ; "left_margin"
+   0x000011f0      push    rdx
+   0x000011f1      push    0x1e
+   0x000011f3      lea     rdx, str.indent ; 0x2042 ; "indent"
+   0x000011fa      push    rdx
+   0x000011fb      push    2          ; r9 ; "LF\x02\x01\x01"
+   0x000011fd      lea     rdx, str.direction ; 0x2049 ; "direction"
+   0x00001204      push    rdx
+   0x00001205      mov     r9d, 2
+   0x0000120b      lea     r8, str.wrap_mode ; 0x2004 ; "wrap_mode"
+   0x00001212      lea     rcx, str.green ; 0x200e ; "green"
+   0x00001219      lea     rdx, str.foreground ; 0x2014 ; "foreground"
+   0x00001220      lea     rsi, str.rtl_quote ; 0x201f ; "rtl_quote"
+   0x00001227      mov     rdi, rax
+   0x0000122a      mov     eax, 0
+   0x0000122f      call    sym.imp.gtk_text_buffer_create_tag
+   0x00001234      add     rsp, 0x50
+   0x00001238      mov     rax, qword [var_8h]
+   0x0000123c      mov     r8d, 0
+   0x00001242      lea     rcx, [rcx] ; 0x2053 ; "red"
+   0x00001249      lea     rdx, str.foreground ; 0x2014 ; "foreground"
+   0x00001250      lea     rsi, str.red_foreground ; 0x2057 ; "red_foreground"
+   0x00001257      mov     rdi, rax
+   0x0000125a      mov     eax, 0
+   0x0000125f      call    sym.imp.gtk_text_buffer_create_tag
